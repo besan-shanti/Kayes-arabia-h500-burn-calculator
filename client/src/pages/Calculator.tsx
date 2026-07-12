@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
-import { Info, Zap } from 'lucide-react';
+import { Info } from 'lucide-react';
 
 const BURN_RATE = 500; // kg/hr during burning stage (3rd stage)
 
@@ -54,8 +54,12 @@ export default function Calculator() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center gap-4">
             {/* Logo */}
-            <div className="flex-shrink-0 h-20 w-20 rounded-full bg-white/10 border-2 border-green-500 flex items-center justify-center">
-              <Zap className="h-10 w-10 text-green-400" />
+            <div className="flex-shrink-0">
+              <img
+                src="/images/kayes-arabia-logo.png"
+                alt="Kayes Arabia Logo"
+                className="h-20 w-20 object-contain"
+              />
             </div>
             {/* Brand Text */}
             <div className="flex-1">
