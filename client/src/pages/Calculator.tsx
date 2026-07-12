@@ -54,12 +54,8 @@ export default function Calculator() {
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center gap-4">
             {/* Logo */}
-            <div className="flex-shrink-0">
-              <img 
-                src="/manus-storage/KayesArabiaLogowcontact_6e2e901e.png" 
-                alt="Kayes Arabia Logo" 
-                className="h-20 w-20 object-contain"
-              />
+            <div className="flex-shrink-0 h-20 w-20 rounded-full bg-white/10 border-2 border-green-500 flex items-center justify-center">
+              <Zap className="h-10 w-10 text-green-400" />
             </div>
             {/* Brand Text */}
             <div className="flex-1">
@@ -167,7 +163,7 @@ export default function Calculator() {
           {/* Info Box */}
           <div className="mt-6 bg-orange-50 border-l-4 border-orange-500 p-4 rounded">
             <p className="text-sm text-orange-900">
-              <span className="font-semibold">💡 Tip:</span> This calculator shows the complete burn cycle including preheat, evaporation, burning, and ashing stages. Always follow the <a href="/manus-storage/kayesarabiaH1000Flowchart_6d7d040f.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-semibold">operational flowchart</a> procedures.
+              <span className="font-semibold">💡 Tip:</span> This calculator shows the complete burn cycle including preheat, evaporation, burning, and ashing stages. Always follow the official operational flowchart procedures posted at the machine.
             </p>
           </div>
         </div>
@@ -329,7 +325,7 @@ export default function Calculator() {
             {/* Safety Note */}
             <div className="bg-red-50 border-l-4 border-red-400 p-4 rounded">
               <p className="text-sm text-red-900">
-                <span className="font-semibold">⚠️ Safety First:</span> Always follow the official <a href="/manus-storage/kayesarabiaH1000Flowchart_6d7d040f.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-semibold">operational flowchart</a> and safety procedures. This calculator provides estimated times. Actual cycle duration may vary based on waste composition and machine conditions.
+                <span className="font-semibold">⚠️ Safety First:</span> Always follow the official operational flowchart and safety procedures posted at the machine. This calculator provides estimated times. Actual cycle duration may vary based on waste composition and machine conditions.
               </p>
             </div>
           </div>
