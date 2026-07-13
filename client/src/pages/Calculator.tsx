@@ -56,7 +56,7 @@ export default function Calculator() {
             {/* Logo */}
             <div className="flex-shrink-0">
               <img 
-                src="/manus-storage/KayesArabiaLogowcontact_6e2e901e.png" 
+                src="/logo.png" 
                 alt="Kayes Arabia Logo" 
                 className="h-20 w-20 object-contain"
               />
