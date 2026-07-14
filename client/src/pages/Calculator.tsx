@@ -189,7 +189,7 @@ export default function Calculator() {
           {/* Info Box */}
           <div className="mt-6 bg-orange-50 border-l-4 border-orange-500 p-4 rounded">
             <p className="text-sm text-orange-900">
-              <span className="font-semibold">💡 Tip:</span> This calculator shows the complete burn cycle including preheat, evaporation, burning, and ashing stages. Always follow the <a href="/flowchart.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-semibold">operational flowchart</a> procedures.
+              <span className="font-semibold">💡 Tip:</span> This calculator shows the complete burn cycle including preheat, evaporation, burning, and ashing stages. Always follow the <a href="./flowchart.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-semibold">operational flowchart</a> procedures.
             </p>
           </div>
         </div>
@@ -351,7 +351,7 @@ export default function Calculator() {
             {/* Safety Note */}
             <div className="bg-red-50 border-l-4 border-red-400 p-4 rounded">
               <p className="text-sm text-red-900">
-                <span className="font-semibold">⚠️ Safety First:</span> Always follow the official <a href="/flowchart.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-semibold">operational flowchart</a> and safety procedures. This calculator provides estimated times. Actual cycle duration may vary based on waste composition and machine conditions.
+                <span className="font-semibold">⚠️ Safety First:</span> Always follow the official <a href="./flowchart.pdf" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-semibold">operational flowchart</a> and safety procedures. This calculator provides estimated times. Actual cycle duration may vary based on waste composition and machine conditions.
               </p>
             </div>
           </div>
