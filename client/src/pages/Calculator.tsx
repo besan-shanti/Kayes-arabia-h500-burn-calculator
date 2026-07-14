@@ -196,7 +196,7 @@ export default function Calculator() {
       </main>
 
       {/* How Modal */}
-      <Dialog open={showHowModal} onOpenChange={setShowHowModal}>
+      <Dialog open={showHowModal} onOpenChange={setShowHowModal} key={`modal-${wasteWeight}`}>
         <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl display-mono text-blue-900">H500 Burn Cycle Explained</DialogTitle>
