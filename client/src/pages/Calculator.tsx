@@ -327,7 +327,11 @@ export default function Calculator() {
               <div className="space-y-3 text-sm text-slate-900">
                 <div>
                   <p className="font-semibold text-slate-900 mb-1">Step 1: Use the Calculator</p>
-                  <p className="text-xs text-slate-700">Enter the waste weight in this calculator and note the <span className="font-semibold">total cycle time</span> shown in the green box (e.g., <span className="font-mono bg-white px-2 py-1 rounded border border-slate-300">"5 hr 30 min"</span> or <span className="font-mono bg-white px-2 py-1 rounded border border-slate-300">"8 hr 20 min"</span>).</p>
+                  {isValidInput ? (
+                    <p className="text-xs text-slate-700">You entered <span className="font-mono bg-white px-2 py-1 rounded border border-slate-300 font-semibold">{wasteWeight} kg</span> of waste. The total cycle time is: <span className="font-mono bg-white px-2 py-1 rounded border border-slate-300 font-semibold">{formatTime(burnCycle.total)}</span>. Note this time.</p>
+                  ) : (
+                    <p className="text-xs text-slate-700">Enter the waste weight in this calculator and note the <span className="font-semibold">total cycle time</span> shown in the green box (e.g., <span className="font-mono bg-white px-2 py-1 rounded border border-slate-300">"5 hr 30 min"</span> or <span className="font-mono bg-white px-2 py-1 rounded border border-slate-300">"8 hr 20 min"</span>).</p>
+                  )}
                 </div>
                 <div>
                   <p className="font-semibold text-slate-900 mb-1">Step 2: Click "Burn Time" Button</p>
