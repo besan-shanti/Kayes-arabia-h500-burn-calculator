@@ -56,13 +56,11 @@ export default function Calculator() {
             {/* Logo */}
             <div className="flex-shrink-0">
               <img 
-                src="./logo.png" 
+                src={new URL('../../public/logo.png', import.meta.url).href}
                 alt="Kayes Arabia Logo" 
                 className="h-20 w-20 object-contain"
                 onError={(e) => {
-                  // Fallback if logo doesn't load
-                  const img = e.target as HTMLImageElement;
-                  img.style.display = 'none';
+                  console.error('Logo failed to load from:', (e.target as HTMLImageElement).src);
                 }}
               />
             </div>
@@ -91,9 +89,22 @@ export default function Calculator() {
                   placeholder="Enter weight in kilograms (max 1500)"
                   value={wasteWeight}
                   onChange={(e) => {
+                    let value = e.target.value;
+                    if (value === '') {
+                      setWasteWeight('');
+                    } else {
+                      const numValue = parseFloat(value);
+                      if (!isNaN(numValue) && numValue >= 0 && numValue <= 1500) {
+                        setWasteWeight(value);
+                      } else if (numValue > 1500) {
+                        setWasteWeight('1500');
+                      }
+                    }
+                  }}
+                  onBlur={(e) => {
                     const value = e.target.value;
-                    if (value === '' || parseFloat(value) <= 1500) {
-                      setWasteWeight(value);
+                    if (value && parseFloat(value) > 1500) {
+                      setWasteWeight('1500');
                     }
                   }}
                   className="text-lg h-12 border-2 border-blue-300 focus:border-blue-700 focus:ring-blue-700"
