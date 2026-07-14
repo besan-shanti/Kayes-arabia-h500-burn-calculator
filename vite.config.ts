@@ -153,6 +153,7 @@ function vitePluginManusDebugCollector(): Plugin {
 function vitePluginStorageProxy(): Plugin {
   return {
     name: "manus-storage-proxy",
+    apply: process.env.GITHUB_PAGES ? 'serve' : 'build',
     configureServer(server: ViteDevServer) {
       server.middlewares.use("/manus-storage", async (req, res) => {
         const key = req.url?.replace(/^\//, "");
@@ -203,10 +204,12 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+const plugins = process.env.GITHUB_PAGES 
+  ? [react(), tailwindcss(), jsxLocPlugin()]
+  : [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
 export default defineConfig({
-  base: process.env.GITHUB_PAGES ? '/Kayes-arabia-h500-burn-calculator/' : '/',
+  base: '/Kayes-arabia-h500-burn-calculator/',
   plugins,
   resolve: {
     alias: {
@@ -217,11 +220,13 @@ export default defineConfig({
   },
   envDir: path.resolve(import.meta.dirname),
   root: path.resolve(import.meta.dirname, "client"),
+  publicDir: path.resolve(import.meta.dirname, "client/public"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true,
   },
   server: {
+    middlewareMode: process.env.GITHUB_PAGES ? true : false,
     port: 3000,
     strictPort: false, // Will find next available port if 3000 is busy
     host: true,
@@ -233,10 +238,12 @@ export default defineConfig({
       ".manusvm.computer",
       "localhost",
       "127.0.0.1",
+      "github.io",
     ],
     fs: {
       strict: true,
       deny: ["**/.*"],
+      allow: ["client/public"],
     },
   },
 });
