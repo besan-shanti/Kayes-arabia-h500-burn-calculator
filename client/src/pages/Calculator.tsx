@@ -56,9 +56,14 @@ export default function Calculator() {
             {/* Logo */}
             <div className="flex-shrink-0">
               <img 
-                src="/logo.png" 
+                src="./logo.png" 
                 alt="Kayes Arabia Logo" 
                 className="h-20 w-20 object-contain"
+                onError={(e) => {
+                  // Fallback if logo doesn't load
+                  const img = e.target as HTMLImageElement;
+                  img.style.display = 'none';
+                }}
               />
             </div>
             {/* Brand Text */}
@@ -83,11 +88,17 @@ export default function Calculator() {
                 </label>
                 <Input
                   type="number"
-                  placeholder="Enter weight in kilograms"
+                  placeholder="Enter weight in kilograms (max 1500)"
                   value={wasteWeight}
-                  onChange={(e) => setWasteWeight(e.target.value)}
+                  onChange={(e) => {
+                    const value = e.target.value;
+                    if (value === '' || parseFloat(value) <= 1500) {
+                      setWasteWeight(value);
+                    }
+                  }}
                   className="text-lg h-12 border-2 border-blue-300 focus:border-blue-700 focus:ring-blue-700"
                   min="0"
+                  max="1500"
                   step="100"
                 />
                 <p className="text-xs text-blue-700">
